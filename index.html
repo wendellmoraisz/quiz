@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <title>Wendiu Quiz</title>
+</head>
+<body>
+    <div class="start_btn"><button>Começar o Quiz</button></div>
+
+    <div class="info-box">
+        <div class="info-title">
+            <span>Algumas regras do Quiz</span>
+        </div>
+            <div class="info-list">
+                <div class="info">1. Você só tem <span>15 segundos</span> para responder cada questão.</div>
+                <div class="info">2. Uma vez selecionada a resposta, ela não pode ser alterada.</div>
+            </div>
+            <div class="buttons">
+                <button class="quit" id="fquit">Sair</button>
+                <button class="restart">Continuar</button>
+            </div>
+    </div>
+
+    <div class="quiz-box">
+        <header>
+            <div class="title">Wendiu Quiz</div>
+            <div class="timer">
+                <div class="time-txt">Tempo Restante</div>
+                <div class="time-sec">15</div>
+            </div>
+        </header>
+        <section>
+            <div class="que-text">
+                <span id="enunciado">Qual o significado da sigla HTTP?</span>
+            </div>
+            <div class="option-list">
+                <div class="option correct">
+                    <span id="option1">Hyper Text Transfer Protocol</span>
+                    <div class="icon tick"><i class="fas fa-check"></i></div>
+                </div>
+                <div class="option wrong">
+                    <span id="option2">Hyper Types Transfer Protocol</span>
+                    <div class="icon cross"><i class="fas fa-times"></i></div>
+                </div>
+                <div class="option wrong">
+                    <span id="option3">Hyper Transfer Text Protocol</span>
+                    <div class="icon cross"><i class="fas fa-times"></i></div>
+                </div>
+                <div class="option wrong">
+                    <span id="option4">Hight Text Transfer Protocol</span>
+                    <div class="icon cross"><i class="fas fa-times"></i></div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="total-que">
+                <span id="num-questoes"><p>1</p>de<p>5</p>Questões</span>
+            </div>
+        </footer>
+    </div>
+
+        <div class="result-box">
+            <div class="icon">
+                <i class="fas fa-crown"></i>
+            </div>
+            <div class="complete-txt">Parabéns, você completou o Quiz</div>
+            <div class="score-txt">
+            </div>
+            <div class="buttons">
+                <button class="quit" id="quit">Sair</button>
+            </div>
+        </div>
+</body>
+
+<script src="quiz.js"></script>
+</html>

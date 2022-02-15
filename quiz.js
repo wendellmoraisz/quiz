@@ -140,7 +140,7 @@ function contador() {
         }else if (tempo == -1){
             correct.style.display = 'block'
             incorrect.forEach((e) => e.style.display = 'block')
-        } else if (tempo == -2){
+        } else if (tempo == -1.5){
             correct.style.display = 'none'
             incorrect.forEach((e) => e.style.display = 'none')
             nextQuestion(questions[getQuestion()])
@@ -148,6 +148,7 @@ function contador() {
     }, 1000)
 
 }
+
 let respostasCorretas = 0
 function correctAnswer(){
     document.querySelector('.correct').onclick = function(){

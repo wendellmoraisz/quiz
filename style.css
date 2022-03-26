@@ -333,4 +333,9 @@ footer .next-btn:hover {
     .info-box {
         width: 95%;
     }
+
+    section .option-list .option:hover{
+        background-color: #d5b5ff;
+        border: 1px solid #804fdb;
+    }
 }

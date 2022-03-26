@@ -326,3 +326,11 @@ footer .next-btn:hover {
     cursor: pointer;
     transition: all 0.3s ease;
 }
+
+@media (max-width: 600px){
+    .quiz-box,
+    .result-box,
+    .info-box {
+        width: 95%;
+    }
+}

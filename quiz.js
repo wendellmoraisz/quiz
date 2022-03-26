@@ -38,38 +38,46 @@ function nextElementFlex(atual, proximo) {
     document.querySelector('.score-txt').innerHTML = `<span>Você acertou <p>${respostasCorretas}</p> De <p>5</p> questões</span>`
 }
 
-const questions = [{
-    enunciado: 'Qual é a porta padrão do protocolo HTTPS?',
-    option1: '80',
-    option2: '8080',
-    option3: '443',
-    option4: '434',
-    opcaoCorreta: 3
-},
-{
-    enunciado: '3 bytes contém quantos bits?',
-    option1: '9',
-    option2: '12',
-    option3: '16',
-    option4: '24',
-    opcaoCorreta: 4
-},
-{
-    enunciado: 'Qual foi o primeiro computador desenvolvido pela Apple?',
-    option1: 'Macintosh',
-    option2: 'Lisa',
-    option3: 'Apple 1',
-    option4: 'Apple PC',
-    opcaoCorreta: 3
-},
-{
-    enunciado: 'Qual foi o primeiro computador eletrônico do mundo?',
-    option1: 'ENIAC',
-    option2: 'Turing Computer',
-    option3: 'IBM PC',
-    option4: 'NPL Pilot Ace',
-    opcaoCorreta: 1
-}]
+class Questão {
+    constructor(enunciado, option1, option2, option3, option4, opcaoCorreta) {
+            this.enunciado = enunciado
+            this.option1 = option1
+            this.option2 = option2
+            this.option3 = option3
+            this.option4 = option4
+            this.opcaoCorreta = opcaoCorreta
+        }
+}
+
+const questions = [
+    new Questão ('Qual é a porta padrão do protocolo HTTPS?',
+    '80',
+    '8080',
+    '443',
+    '434',
+    3),
+
+    new Questão ('3 bytes contém quantos bits?',
+    '9',
+    '12',
+    '16',
+    '24',
+    4),
+
+    new Questão('Qual foi o primeiro computador desenvolvido pela Apple?',
+    'Macintosh',
+    'Lisa',
+    'Apple 1',
+    'Apple PC',
+    3),
+    
+    new Questão('Qual foi o primeiro computador eletrônico do mundo?',
+    'ENIAC',
+    'Turing Computer',
+    'IBM PC',
+    'NPL Pilot Ace',
+    1)
+]
 
 let indexQuestion = -1
 function getQuestion() {
@@ -91,21 +99,20 @@ const opcoes = document.querySelectorAll('.icon')
 const icons = document.querySelectorAll('.fas')
 
 function nextQuestion(question) {
-    numQuestoes.innerHTML = `<p>${numQuestions()}</p>de<p>5</p>Questões`
+    clearInterval(setTempo)
 
+    numQuestoes.innerHTML = `<p>${numQuestions()}</p>de<p>5</p>Questões`
     document.getElementById('enunciado').innerHTML = question.enunciado
     document.getElementById('option1').innerHTML = question.option1
     document.getElementById('option2').innerHTML = question.option2
     document.getElementById('option3').innerHTML = question.option3
     document.getElementById('option4').innerHTML = question.option4
     
-    // opcoes
     document.querySelector('.correct').classList.add('wrong')
     document.querySelector('.correct').classList.remove('correct')
     alternativas[question.opcaoCorreta - 1].classList.remove('wrong')
     alternativas[question.opcaoCorreta - 1].classList.add('correct')
     
-    // icones
     document.querySelector('.tick').style.display = 'none'
     document.querySelectorAll('.cross').forEach(e => e.style.display = 'none')
     document.querySelector('.tick').classList.add('cross')
@@ -140,7 +147,7 @@ function contador() {
         }else if (tempo == -1){
             correct.style.display = 'block'
             incorrect.forEach((e) => e.style.display = 'block')
-        } else if (tempo == -1.5){
+        }else if (tempo < -1.5){
             correct.style.display = 'none'
             incorrect.forEach((e) => e.style.display = 'none')
             nextQuestion(questions[getQuestion()])
@@ -174,7 +181,6 @@ function wrongAnswer(){
         let i = 0
         let intevalo = setInterval(()=> {
             i++
-            console.log('ola')
             if(i == 2){
                 nextQuestion(questions[getQuestion()])
                 clearInterval(intevalo)

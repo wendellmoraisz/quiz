@@ -38,15 +38,13 @@ function nextElementFlex(atual, proximo) {
     document.querySelector('.score-txt').innerHTML = `<span>Você acertou <p>${respostasCorretas}</p> De <p>5</p> questões</span>`
 }
 
-class Questão {
-    constructor(enunciado, option1, option2, option3, option4, opcaoCorreta) {
-            this.enunciado = enunciado
-            this.option1 = option1
-            this.option2 = option2
-            this.option3 = option3
-            this.option4 = option4
-            this.opcaoCorreta = opcaoCorreta
-        }
+function Questão (enunciado, option1, option2, option3, option4, opcaoCorreta){
+    this.enunciado = enunciado
+    this.option1 = option1
+    this.option2 = option2
+    this.option3 = option3
+    this.option4 = option4
+    this.opcaoCorreta = opcaoCorreta
 }
 
 const questions = [
@@ -78,6 +76,8 @@ const questions = [
     'NPL Pilot Ace',
     1)
 ]
+
+console.log(questions)
 
 let indexQuestion = -1
 function getQuestion() {
